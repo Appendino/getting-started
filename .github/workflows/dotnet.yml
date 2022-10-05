@@ -7,13 +7,14 @@ on:
     branches: [ "master" ]
 
 jobs:
-  runs-on: ubuntu-latest
-  name: A job to say hello
-  steps:
-  - name: Hello world action step
-    id: hello
-    uses: Appendino/hello-world-docker-action
-    with:
-      who-to-greet: 'eu mesmo'
-  - name: Get the output time
-    run: echo "The time was ${{ steps.hello.outputs.time }}"
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+    - name: Hello world action step
+      id: hello
+      uses: Appendino/hello-world-docker-action@v1
+      with:
+        who-to-greet: 'eu mesmo'
+    - name: Get the output time
+      run: echo "The time was ${{ steps.hello.outputs.time }}"
